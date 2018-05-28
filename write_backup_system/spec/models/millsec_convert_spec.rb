@@ -25,8 +25,12 @@ RSpec.describe MillsecConvert, type: :model do
 
       expect(millsec_convert.difference).to eq 60 * 24 * 60
     end
-    example '比較先の時間の方が大きい場合'
-    example '比較先の時間の方が小さい場合'
+    example '比較先の時間の方が小さい場合、負の値を返すこと' do
+      datetime = DateTime.now
+      millsec_convert = build(:millsec_convert, before_time: datetime, after_time: datetime.since(1.days) )
+
+      expect(millsec_convert.difference).to eq 0 - 60 * 24 * 60
+    end
   end
 
 end
