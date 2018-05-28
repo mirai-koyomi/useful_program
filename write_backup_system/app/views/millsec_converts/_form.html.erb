@@ -1,0 +1,42 @@
+<%= form_with(model: millsec_convert, local: true) do |form| %>
+  <% if millsec_convert.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(millsec_convert.errors.count, "error") %> prohibited this millsec_convert from being saved:</h2>
+
+      <ul>
+      <% millsec_convert.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :before_time %>
+    <%= form.datetime_select :before_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :after_time %>
+    <%= form.datetime_select :after_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :difference %>
+    <%= form.time_select :difference %>
+  </div>
+
+  <div class="field">
+    <%= form.label :millsec %>
+    <%= form.text_field :millsec %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comment %>
+    <%= form.text_field :comment %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

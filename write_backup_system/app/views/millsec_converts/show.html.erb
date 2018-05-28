@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Before time:</strong>
+  <%= @millsec_convert.before_time %>
+</p>
+
+<p>
+  <strong>After time:</strong>
+  <%= @millsec_convert.after_time %>
+</p>
+
+<p>
+  <strong>Difference:</strong>
+  <%= @millsec_convert.difference %>
+</p>
+
+<p>
+  <strong>Millsec:</strong>
+  <%= @millsec_convert.millsec %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @millsec_convert.comment %>
+</p>
+
+<%= link_to 'Edit', edit_millsec_convert_path(@millsec_convert) %> |
+<%= link_to 'Back', millsec_converts_path %>

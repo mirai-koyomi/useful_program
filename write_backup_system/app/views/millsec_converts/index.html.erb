@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Millsec Converts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Before time</th>
+      <th>After time</th>
+      <th>Difference</th>
+      <th>Millsec</th>
+      <th>Comment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @millsec_converts.each do |millsec_convert| %>
+      <tr>
+        <td><%= millsec_convert.before_time %></td>
+        <td><%= millsec_convert.after_time %></td>
+        <td><%= millsec_convert.difference %></td>
+        <td><%= millsec_convert.millsec %></td>
+        <td><%= millsec_convert.comment %></td>
+        <td><%= link_to 'Show', millsec_convert %></td>
+        <td><%= link_to 'Edit', edit_millsec_convert_path(millsec_convert) %></td>
+        <td><%= link_to 'Destroy', millsec_convert, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Millsec Convert', new_millsec_convert_path %>
