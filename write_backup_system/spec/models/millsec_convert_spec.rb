@@ -16,6 +16,10 @@ RSpec.describe MillsecConvert, type: :model do
       millsec_convert = build(:millsec_convert, after_time: nil)
       expect(millsec_convert).not_to be_valid
     end
+    example "時差がなければ無効な状態であること" do
+      millsec_convert = build(:millsec_convert, difference: nil)
+      expect(millsec_convert).not_to be_valid
+    end
   end
 
   describe '時差の計算' do

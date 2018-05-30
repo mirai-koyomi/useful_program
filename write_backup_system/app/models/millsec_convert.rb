@@ -1,17 +1,19 @@
 class MillsecConvert < ApplicationRecord
-  validates :before_time, :after_time, presence: true
-  validate :get_difference
+
+  with_options unless: -> { :before_time? || :after_time? } do
+    validates :differense, presence: true
+    after_validation :get_time
+  end
+  with_options unless: :defferense? do
+    validates :before_time, :after_time, presence: true
+  end
 
   private
-  def get_difference
-    if (self.after_time.present? && self.before_time.present?)
-      p self.after_time
-      p self.after_time.to_time.to_i
-      self.difference = self.after_time.to_time.to_i - self.before_time.to_time.to_i
-      self.millsec = self.difference * 1000.0
-    else
-      self.difference = nil
-      self.millsec = nil
+  def get_time
+    if before_time?
+      # 計算
+    else after_time?
+      # 計算
     end
   end
 end
