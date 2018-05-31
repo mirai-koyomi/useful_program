@@ -13,10 +13,9 @@
 ActiveRecord::Schema.define(version: 2018_05_28_044631) do
 
   create_table "millsec_converts", force: :cascade do |t|
-    t.datetime "before_time", null: false
-    t.datetime "after_time", null: false
-    t.time "difference", null: false
-    t.float "millsec", null: false
+    t.datetime "before_date", null: false
+    t.datetime "after_date", null: false
+    t.float "time_diff", null: false
     t.string "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

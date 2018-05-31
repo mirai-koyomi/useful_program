@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :millsec_convert do
-    before_time { Faker::Date.between(1.year.since, Date.today) }
-    after_time { Faker::Date.between(1.days.ago, 1.year.ago) }
+    before_date { Faker::Date.between(1.year.ago, Date.today) }
+    after_date { Faker::Date.between(1.days.since, 1.year.since) }
   end
 end
