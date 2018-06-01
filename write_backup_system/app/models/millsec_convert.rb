@@ -3,6 +3,7 @@ class MillsecConvert < ApplicationRecord
   validates :before_date, presence: true, unless: -> { after_date? && time_diff? }
   validates :after_date, presence: true, unless: -> { before_date? && time_diff? }
   validates :time_diff, presence: true, unless: :time_exist?
+  validates :comment, length: { :maximum => 100 }
 
   before_save :get_date, unless: :time_exist?
   before_save :get_time_diff, if: :time_exist?
