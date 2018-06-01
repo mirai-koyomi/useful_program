@@ -3,7 +3,7 @@ class CreateMillsecConverts < ActiveRecord::Migration[5.2]
     create_table :millsec_converts do |t|
       t.datetime :before_date, :null => false
       t.datetime :after_date, :null => false
-      t.float :time_diff, :null => false
+      t.integer :time_diff, :null => false
       t.string :comment
 
       t.timestamps
