@@ -1,0 +1,29 @@
+%h1 Listing dictionaries
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Contents
+      %th Status
+      %th Publish
+      %th At release
+      %th
+      %th
+      %th
+
+  %tbody
+    - @dictionaries.each do |dictionary|
+      %tr
+        %td= dictionary.title
+        %td= dictionary.contents
+        %td= dictionary.status
+        %td= dictionary.publish
+        %td= dictionary.at_release
+        %td= link_to 'Show', dictionary
+        %td= link_to 'Edit', edit_dictionary_path(dictionary)
+        %td= link_to 'Destroy', dictionary, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Dictionary', new_dictionary_path
