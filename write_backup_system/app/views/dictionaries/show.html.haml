@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @dictionary.title
+%p
+  %b Contents:
+  = @dictionary.contents
+%p
+  %b Status:
+  = @dictionary.status
+%p
+  %b Publish:
+  = @dictionary.publish
+%p
+  %b At release:
+  = @dictionary.at_release
+
+= link_to 'Edit', edit_dictionary_path(@dictionary)
+\|
+= link_to 'Back', dictionaries_path
