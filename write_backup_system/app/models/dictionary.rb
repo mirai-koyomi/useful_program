@@ -19,9 +19,7 @@ class Dictionary < ApplicationRecord
   end
 
   def check_publish
-    if ( self.status === 'draft' )
-      self.publish = false
-    elsif ( self.publish.nil? )
+    unless ( self.status != 'draft' || self.publish.nil? )
       self.publish = false
     end
   end
