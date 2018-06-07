@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2018_06_01_084336) do
     t.text "contents", null: false
     t.string "status", default: "draft", null: false
     t.boolean "publish", default: false, null: false
-    t.datetime "at_release"
+    t.datetime "released_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

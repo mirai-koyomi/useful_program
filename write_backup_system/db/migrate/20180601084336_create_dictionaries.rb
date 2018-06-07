@@ -5,7 +5,7 @@ class CreateDictionaries < ActiveRecord::Migration[5.2]
       t.text :contents, :null => false
       t.string :status, :null => false, :default => 'draft'
       t.boolean :publish, :null => false, :default => false
-      t.datetime :at_release
+      t.datetime :released_at
 
       t.timestamps
     end
