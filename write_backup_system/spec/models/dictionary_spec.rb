@@ -1,18 +1,30 @@
 require 'rails_helper'
 
 RSpec.describe Dictionary, type: :model do
-  describe 'ステータスのバリデーション' do
-    example '下書きの場合、有効な状態であること' do
-      dictionary = build(:dictionary, :draft)
-      expect(dictionary).to be_valid
+  describe 'バリデーション' do
+    context 'タイトル' do
+      example '100文字以内の場合、有効な状態であること' do
+        dictionary = build(:dictionary, :draft)
+        expect(dictionary).to be_valid
+      end
+      example '101文字以上の場合、無効な状態であること' do
+        dictionary = build(:dictionary, :draft, title: 'あ' * 101)
+        expect(dictionary).not_to be_valid
+      end
     end
-    example 'リリーズの場合、有効な状態であること' do
-      dictionary = build(:dictionary, :released)
-      expect(dictionary).to be_valid
-    end
-    example '下書き、リリース以外の場合、無効な状態であること' do
-      dictionary = build(:dictionary, :draft, status: 'test')
-      expect(dictionary).not_to be_valid
+    context 'ステータス' do
+      example '下書きの場合、有効な状態であること' do
+        dictionary = build(:dictionary, :draft)
+        expect(dictionary).to be_valid
+      end
+      example 'リリーズの場合、有効な状態であること' do
+        dictionary = build(:dictionary, :released)
+        expect(dictionary).to be_valid
+      end
+      example '下書き、リリース以外の場合、無効な状態であること' do
+        dictionary = build(:dictionary, :draft, status: 'test')
+        expect(dictionary).not_to be_valid
+      end
     end
   end
   describe '値の整形' do
