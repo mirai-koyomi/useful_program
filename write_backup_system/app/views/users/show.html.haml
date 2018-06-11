@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Screen name:
+  = @user.screen_name
+%p
+  %b Name:
+  = @user.name
+%p
+  %b Password digest:
+  = @user.password_digest
+%p
+  %b Description:
+  = @user.description
+%p
+  %b Comment:
+  = @user.comment
+
+= link_to 'Edit', edit_user_path(@user)
+\|
+= link_to 'Back', users_path
