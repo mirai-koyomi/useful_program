@@ -20,6 +20,10 @@ ActiveRecord::Schema.define(version: 2018_06_01_084336) do
     t.datetime "released_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["contents"], name: "index_dictionaries_on_contents"
+    t.index ["publish"], name: "index_dictionaries_on_publish"
+    t.index ["status"], name: "index_dictionaries_on_status"
+    t.index ["title"], name: "index_dictionaries_on_title"
   end
 
   create_table "millsec_converts", force: :cascade do |t|
