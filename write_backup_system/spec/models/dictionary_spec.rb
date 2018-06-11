@@ -26,6 +26,16 @@ RSpec.describe Dictionary, type: :model do
         expect(dictionary).not_to be_valid
       end
     end
+    context '複合条件' do
+      example 'タイトルがデフォルトの状態で、リリースすることはできない' do
+        dictionary = build(:dictionary, :released, title: '無題のドキュメント00000000')
+        expect(dictionary).not_to be_valid
+      end
+      example 'タイトルが空の状態で、リリースすることはできない' do
+        dictionary = build(:dictionary, :released, title: '')
+        expect(dictionary).not_to be_valid
+      end
+    end
   end
   describe '値の整形' do
     example 'タイトルが空だった場合、自動で仮のタイトルが入ること' do
