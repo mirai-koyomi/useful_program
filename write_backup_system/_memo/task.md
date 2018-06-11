@@ -7,9 +7,9 @@ UserはそれぞれにFollow, Followedの関係を持つ。
 
 Userモデルは以下のステータスを持ち回る。
 
-- id:string
+- screen_name:string
 - name:string
-- password:string
+- password_digest:string
 - mail:string
 - discription:text
 - has_world:world
